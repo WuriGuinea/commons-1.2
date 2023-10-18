@@ -14,13 +14,15 @@ public enum SmsPropertyConstant {
 	PROVIDER_CLIENT("client"),
 	AUTH_KEY("authkey"),
 	SMS_MESSAGE("text"), 
-	RECIPIENT_NUMBER("phone"), 
+	RECIPIENT_NUMBER("to"), 
 	COUNTRY_CODE("country"), 
 	ROUTE("route"),
-	SENDER_ID("from"), 
+	SENDER_ID("sender_name"), 
 	VENDOR_RESPONSE_SUCCESS("success"), 
 	SUCCESS_RESPONSE("Sms Request Sent"), UNICODE("unicode"),
 	PROJECT_NAME("kernel-notification-sms"), 
+	DESTINATION_MESSAGE(" to"), 
+	CONTENT_MESSAGE("message"), 
 	SUFFIX_MESSAGE(" digits"), 
 	NUMBERS("numbers");
 

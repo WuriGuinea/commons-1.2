@@ -37,22 +37,21 @@ public class SMSServiceProviderImpl implements SMSServiceProvider {
 	private String countryCode;
 	@Value("${mosip.kernel.sms.api}")
 	private String apiUrl;
-	@Value("${mosip.kernel.sms.client}")
-	private String clienId;
-	 	@Value("${mosip.kernel.sms.sender}")
+	@Value("${mosip.kernel.sms.sender}")
 	private String senderId;
 	@Value("${mosip.kernel.sms.unicode:1}")
 	private String unicode;
 	@Value("${mosip.kernel.sms.number.length}")
 	private int numberLength;
+	@Value("${mosip.kernel.sms.authorization}")
+	private String authorization;
 
 	@Override
 	public SMSResponseDto sendSms(String contactNumber, String message) {
 		SMSResponseDto smsResponseDTO = new SMSResponseDto();
 		validateInput(contactNumber);
-		contactNumber = countryCode.concat(contactNumber);
-		try {
-			NimbaMessageRequest.send("", contactNumber, message);
+			try {
+			NimbaMessageRequest.send(apiUrl,authorization,senderId ,contactNumber, message);
 		} catch (HttpClientErrorException | HttpServerErrorException | JSONException|UnsupportedEncodingException | IOException e) {
 
 			throw new RuntimeException(((RestClientResponseException) e).getResponseBodyAsString());
