@@ -42,7 +42,7 @@ public class SmsNotificationServiceImpl implements SmsNotification {
 	 */
 	@Override
 	public SMSResponseDto sendSmsNotification(String contactNumber, String contentMessage) {
-		 (activeProfile.equalsIgnoreCase("local") || isProxytrue) {
+		if (activeProfile.equalsIgnoreCase("local") || isProxytrue) {
 			 			logger.info ("Profile value="+activeProfile+ "and  isProxytrue = "+isProxytrue);
 			SMSResponseDto smsResponseDTO = new SMSResponseDto();
 			smsResponseDTO.setMessage(sucessMessage);
