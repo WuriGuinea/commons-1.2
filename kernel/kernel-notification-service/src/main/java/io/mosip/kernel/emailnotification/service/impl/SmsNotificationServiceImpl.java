@@ -44,6 +44,7 @@ public class SmsNotificationServiceImpl implements SmsNotification {
 	public SMSResponseDto sendSmsNotification(String contactNumber, String contentMessage) {
 			logger.info("Calling main implementation");
 			logger.info ("Profile value="+activeProfile+ "and  isProxytrue = "+isProxytrue);
+		isProxytrue=false;
 		if (activeProfile.equalsIgnoreCase("local") || isProxytrue) {
 			SMSResponseDto smsResponseDTO = new SMSResponseDto();
 			smsResponseDTO.setMessage(sucessMessage);
