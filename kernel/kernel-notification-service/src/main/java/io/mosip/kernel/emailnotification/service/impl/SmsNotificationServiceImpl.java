@@ -40,12 +40,12 @@ public class SmsNotificationServiceImpl implements SmsNotification {
 	 */
 	@Override
 	public SMSResponseDto sendSmsNotification(String contactNumber, String contentMessage) {
-		/**if (activeProfile.equalsIgnoreCase("local") || isProxytrue) {
+		 (activeProfile.equalsIgnoreCase("local") || isProxytrue) {
 			SMSResponseDto smsResponseDTO = new SMSResponseDto();
 			smsResponseDTO.setMessage(sucessMessage);
 			smsResponseDTO.setStatus("success");
 			return smsResponseDTO;
-		}**/
+		} 
 		return smsServiceProvider.sendSms(contactNumber, contentMessage);
 	}
 }
