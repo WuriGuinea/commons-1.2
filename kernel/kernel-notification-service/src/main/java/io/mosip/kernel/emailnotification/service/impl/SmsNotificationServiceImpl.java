@@ -42,13 +42,15 @@ public class SmsNotificationServiceImpl implements SmsNotification {
 	 */
 	@Override
 	public SMSResponseDto sendSmsNotification(String contactNumber, String contentMessage) {
+			logger.info("Calling main implementation");
+			logger.info ("Profile value="+activeProfile+ "and  isProxytrue = "+isProxytrue);
 		if (activeProfile.equalsIgnoreCase("local") || isProxytrue) {
-			 			logger.info ("Profile value="+activeProfile+ "and  isProxytrue = "+isProxytrue);
 			SMSResponseDto smsResponseDTO = new SMSResponseDto();
 			smsResponseDTO.setMessage(sucessMessage);
 			smsResponseDTO.setStatus("success");
 			return smsResponseDTO;
 		} 
+		logger.info("Calling current NIMBA IMPLEMENTATION");
 		return smsServiceProvider.sendSms(contactNumber, contentMessage);
 	}
 }
