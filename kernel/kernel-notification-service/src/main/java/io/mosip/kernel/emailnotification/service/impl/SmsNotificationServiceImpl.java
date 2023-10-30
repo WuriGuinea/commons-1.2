@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 import io.mosip.kernel.core.notification.model.SMSResponseDto;
 import io.mosip.kernel.core.notification.spi.SMSServiceProvider;
 import io.mosip.kernel.emailnotification.service.SmsNotification;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * This service class send SMS on the contact number provided.
  * 
@@ -19,6 +20,7 @@ import io.mosip.kernel.emailnotification.service.SmsNotification;
 @RefreshScope
 @Service
 public class SmsNotificationServiceImpl implements SmsNotification {
+	static Logger logger = LoggerFactory.getLogger(SmsNotificationServiceImpl.class);
 
 	@Value("${spring.profiles.active}")
 	String activeProfile;
@@ -41,6 +43,7 @@ public class SmsNotificationServiceImpl implements SmsNotification {
 	@Override
 	public SMSResponseDto sendSmsNotification(String contactNumber, String contentMessage) {
 		 (activeProfile.equalsIgnoreCase("local") || isProxytrue) {
+			 			logger.info ("Profile value="+activeProfile+ "and  isProxytrue = "+isProxytrue);
 			SMSResponseDto smsResponseDTO = new SMSResponseDto();
 			smsResponseDTO.setMessage(sucessMessage);
 			smsResponseDTO.setStatus("success");
